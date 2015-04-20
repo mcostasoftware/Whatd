@@ -1,0 +1,42 @@
+<template name="homepage">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Score</th>
+            <th>Suggestion</th>
+            <th>Tags</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each suggestion}}
+        <tr>
+            <td>
+                <div class="vote">
+                    <span class="glyphicon glyphicon-thumbs-up">
+
+                    </span>
+                    <span>
+                    {{score}}
+                    </span>
+                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                </div>
+            </td>
+            <td>{{name}}</td>
+            <td>
+                <ul>
+                    <li class="tag-list-item">
+                        Movie
+                    </li>
+                    <li class="tag-list-item">
+                        Comedy
+                    </li>
+                    <li class="tag-list-item">
+                        Funny
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>
