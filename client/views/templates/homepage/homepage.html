@@ -24,15 +24,11 @@
             <td>{{name}}</td>
             <td>
                 <ul>
+                    {{#each this.tags}}
                     <li class="tag-list-item">
-                        Movie
+                        <a>{{this}}</a>
                     </li>
-                    <li class="tag-list-item">
-                        Comedy
-                    </li>
-                    <li class="tag-list-item">
-                        Funny
-                    </li>
+                    {{/each}}
                 </ul>
             </td>
         </tr>
