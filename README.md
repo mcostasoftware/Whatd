@@ -1,5 +1,4 @@
 # Whatd
 Projeto para minha PAP
 
-#Packages
--Iron-Router
+Packages: .meteor\packages
