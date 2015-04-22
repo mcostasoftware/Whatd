@@ -1,38 +1,60 @@
 <template name="homepage">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>Score</th>
-            <th>Suggestion</th>
-            <th>Tags</th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#each suggestion}}
-        <tr>
-            <td>
-                <div class="vote">
+    <div class="col-md-3">
+        {{>sidebar}}
+    </div>
+
+    <div class="col-md-9">
+
+        <div class="row carousel-holder">
+
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Score</th>
+                        <th>Suggestion</th>
+                        <th>Tags</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each suggestion}}
+                        <tr>
+                            <td>
+                                <div class="vote">
                     <span class="glyphicon glyphicon-thumbs-up">
 
                     </span>
                     <span>
-                    {{score}}
+                        {{score}}
                     </span>
-                    <span class="glyphicon glyphicon-thumbs-down"></span>
-                </div>
-            </td>
-            <td>{{name}}</td>
-            <td>
-                <ul>
-                    {{#each this.tags}}
-                    <li class="tag-list-item">
-                        <a>{{this}}</a>
-                    </li>
+                                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                                </div>
+                            </td>
+                            <td><a>{{name}}</a></td>
+                            <td>
+                                <ul>
+                                    {{#each this.tags}}
+                                        <li class="tag-list-item">
+                                            <a>{{this}}</a>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </td>
+                        </tr>
                     {{/each}}
-                </ul>
-            </td>
-        </tr>
-        {{/each}}
-        </tbody>
-    </table>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
 </template>

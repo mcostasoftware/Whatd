@@ -10,7 +10,16 @@
                 <a class="navbar-brand" href="/">Whatd.</a>
             </div>
             <div class="navbar-collapse collapse">
-
+                {{#if currentUser}}
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/NewSuggestion">New Suggestion</a>
+                    </li>
+                    <li>
+                        <a href="/MySuggestions">My Suggestions</a>
+                    </li>
+                </ul>
+                {{/if}}
                 <ul class="nav navbar-nav navbar-right">
                     <li><a>{{> loginButtons}}</a></li>
 
@@ -24,22 +33,7 @@
 
         <div class="row">
 
-            <div class="col-md-3">
-                {{>sidebar}}
-            </div>
-
-            <div class="col-md-9">
-
-                <div class="row carousel-holder">
-
-                    <div class="col-md-12">
-                        {{>yield}}
-                    </div>
-
-                </div>
-
-
-            </div>
+            {{> yield}}
 
         </div>
 
