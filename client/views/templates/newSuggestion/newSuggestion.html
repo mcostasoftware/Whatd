@@ -1,3 +1,14 @@
 <template name="newSuggestion">
-    <div>New Suggestions</div>
+    <form>
+        <label for="suggestionTitle">Title:</label>
+        <input type="text" class="form-control margin-5px" id="suggestionTitle">
+
+        <label for="description">Description:</label>
+        <textarea class="form-control margin-5px" rows="5" id="description"></textarea>
+
+        <label for="taglist">Tags:</label>
+        <input type="text" class="form-control margin-5px" id="taglist">
+        <button type="submit" class="btn btn-success ">Submit</button>
+    </form>
+
 </template>
