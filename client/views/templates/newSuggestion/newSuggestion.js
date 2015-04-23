@@ -14,7 +14,5 @@ Template.newSuggestion.events({
             tags : tags,
             createdBy: currentUserId
         });
-
-        console.log("working!");
     }
 });
