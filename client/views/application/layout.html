@@ -10,16 +10,28 @@
                 <a class="navbar-brand" href="/">Whatd.</a>
             </div>
             <div class="navbar-collapse collapse">
-                {{#if currentUser}}
+
                 <ul class="nav navbar-nav">
+                    {{#if currentUser}}
                     <li>
                         <a href="/NewSuggestion">New Suggestion</a>
                     </li>
                     <li>
                         <a href="/MySuggestions">My Suggestions</a>
                     </li>
-                </ul>
                 {{/if}}
+                    {{#if isInRole 'admin'}}
+                    <li>
+                        <a href="/AdminPanel">Admin Panel</a>
+                    </li>
+                    {{/if}}
+                    {{#if isInRole 'moderator'}}
+                        <li>
+                            <a href="/AdminPanel">Admin Panel</a>
+                        </li>
+                    {{/if}}
+                </ul>
+
                 <ul class="nav navbar-nav navbar-right">
                     <li><a>{{> loginButtons}}</a></li>
 

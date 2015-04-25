@@ -12,7 +12,8 @@ Template.newSuggestion.events({
             score: 0,
             description: description,
             tags : tags,
-            createdBy: currentUserId
+            createdBy: currentUserId,
+            createdAt: new Date()
         });
     }
 });
