@@ -1,5 +1,3 @@
-Meteor.subscribe('theSuggestions');
-
 Template.newSuggestion.events({
     'submit form' : function(event, template) {
         event.preventDefault();
@@ -15,5 +13,6 @@ Template.newSuggestion.events({
             createdBy: currentUserId,
             createdAt: new Date()
         });
+        console.log("working");
     }
 });

@@ -1,7 +1,5 @@
-Meteor.subscribe('theSuggestions');
-
 Template.homepage.helpers({
-    suggestion : function () {
+    suggestions : function () {
         return Suggestions.find();
     }
 });

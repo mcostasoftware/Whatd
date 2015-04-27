@@ -1,5 +1,5 @@
 Template.homepage.helpers({
     suggestion : function () {
-        return Suggestions.findOne({_id: this.params._id});
+        return Suggestions.findOne();
     }
 });
