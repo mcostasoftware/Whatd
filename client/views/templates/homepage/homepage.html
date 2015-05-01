@@ -1,5 +1,6 @@
 <template name="homepage">
     <div class="col-md-3">
+
         {{>sidebar}}
     </div>
 
@@ -17,7 +18,35 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {{#each suggestions}}
+                    {{#ifEsInputIsEmpty index="suggestions"}}
+                        {{#each suggestions}}
+                            <tr>
+                                <td>
+                                    <div class="vote">
+                    <span class="glyphicon glyphicon-thumbs-up">
+
+                    </span>
+                    <span>
+                        {{score}}
+                    </span>
+                                        <span class="glyphicon glyphicon-thumbs-down"></span>
+                                    </div>
+                                </td>
+                                <td><a href="{{pathFor 'suggestion'}}">{{name}}</a></td>
+                                <td>
+                                    <ul>
+                                        {{#each this.tags}}
+                                            <li class="tag-list-item">
+                                                <a>{{this}}</a>
+                                            </li>
+                                        {{/each}}
+                                    </ul>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    {{/ifEsInputIsEmpty}}
+
+                    {{#esEach index="suggestions"}}
                         <tr>
                             <td>
                                 <div class="vote">
@@ -41,7 +70,7 @@
                                 </ul>
                             </td>
                         </tr>
-                    {{/each}}
+                    {{/esEach}}
                     </tbody>
                 </table>
             </div>

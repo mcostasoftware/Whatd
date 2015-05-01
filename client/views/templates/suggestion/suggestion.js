@@ -1,5 +1,6 @@
-Template.homepage.helpers({
-    suggestion : function () {
+Template.suggestion.helpers({
+    //
+    suggestionIndividual : function () {
         return Suggestions.findOne();
     }
 });

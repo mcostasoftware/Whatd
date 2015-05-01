@@ -1,18 +1,18 @@
 <template name="sidebar">
 
-        <input class="form-control " id="inputdefault" type="text" placeholder="Search for something!">
-        <div id="tags">
-        <input class="form-control spacing-margins-custom" id="inputdefault" type="text" placeholder="Add a tag!"> <button class="btn-success">Add</button>
-            <ul class="list-unstyled spacing-margins-custom">
-                <li class="tag-list-item">
-                   <a>Movie</a>
-                </li>
-                <li class="tag-list-item">
-                    <a>Comedy</a>
-                </li>
-                <li class="tag-list-item">
-                    <a>Funny</a>
-                </li>
+
+    {{> esInput index="suggestions" placeholder="Search for something!" class="form-control"}}
+    <div id="tags">
+<form id="inputForTags">
+        <input class="form-control spacing-margins-custom" id="TagsInput" type="text" placeholder="Add a tag!">
+</form>
+            <ul  type="submit" class="list-unstyled spacing-margins-custom" id="TagList">
+                {{#each tagsList}}
+                    <li class="tag-list-item">
+
+                      <a>{{this}}</a>
+                    </li>
+                {{/each}}
 
             </ul>
         </div>

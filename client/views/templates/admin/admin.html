@@ -1,44 +1,6 @@
 <template name="adminTemplate">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Reports</h3>
+        {{> accountsAdmin}}
 
-            </div>
-            <div class="col-md-6">
-                <h3>Users</h3>
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>E-mail</th>
-                        <th>Role</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                       {{#each users}}
-                        <tr>
-                            <td>
-
-                            </td>
-                            <td><a>{{#each this.emails}}
-                                {{address}}
-
-                       {{/each}}
-                            </a></td>
-                            <td>
-                                {{#each this.roles}}
-                                        {{this}}
-                                    {{/each}}
-                            </td>
-                        </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-                <input type="text" class="form-control margin-5px" placeholder="Copy the ID of a user to promote to admin" id="UserID">
-                <button class="btn btn-success pull-right" type="submit">Promote</button>
-            </div>
-        </div>
     </div>
 </template>
-

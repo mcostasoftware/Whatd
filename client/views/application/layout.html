@@ -27,13 +27,13 @@
                     {{/if}}
                     {{#if isInRole 'moderator'}}
                         <li>
-                            <a href="/AdminPanel">Admin Panel</a>
+                            <a href="/ModeratorPanel">Moderator Panel</a>
                         </li>
                     {{/if}}
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a>{{> loginButtons}}</a></li>
+                    {{> loginButtons}}
 
                 </ul>
 
