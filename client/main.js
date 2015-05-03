@@ -4,3 +4,7 @@ Meteor.startup(function() {
         publickey: '6LcSLQYTAAAAAB_Xp7Hqwu-X1hlOsYQTZRD0lqY3'
     });
 });
+
+Accounts.ui.config({
+    passwordSignupFields: 'USERNAME_AND_EMAIL'
+});

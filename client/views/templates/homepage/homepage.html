@@ -23,13 +23,17 @@
                             <tr>
                                 <td>
                                     <div class="vote">
-                    <span class="glyphicon glyphicon-thumbs-up">
+                                        <a>
+                                            <span class="glyphicon glyphicon-thumbs-up"></span>
+                                        </a>
 
-                    </span>
+
                     <span>
                         {{score}}
                     </span>
+                                        <a>
                                         <span class="glyphicon glyphicon-thumbs-down"></span>
+                                    </a>
                                     </div>
                                 </td>
                                 <td><a href="{{pathFor 'suggestion'}}">{{name}}</a></td>
@@ -50,13 +54,15 @@
                         <tr>
                             <td>
                                 <div class="vote">
-                    <span class="glyphicon glyphicon-thumbs-up">
-
-                    </span>
+                                    <a>
+                                         <span class="glyphicon glyphicon-thumbs-up"></span>
+                                    </a>
                     <span>
                         {{score}}
                     </span>
+                                    <a>
                                     <span class="glyphicon glyphicon-thumbs-down"></span>
+                                    </a>
                                 </div>
                             </td>
                             <td><a href="{{pathFor 'suggestion'}}">{{name}}</a></td>
@@ -64,7 +70,7 @@
                                 <ul>
                                     {{#each this.tags}}
                                         <li class="tag-list-item">
-                                            <a>{{this}}</a>
+                                            <a type="submit">{{this}}</a>
                                         </li>
                                     {{/each}}
                                 </ul>

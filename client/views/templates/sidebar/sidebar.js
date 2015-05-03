@@ -6,13 +6,35 @@ Template.sidebar.events({
 
 
         // verifica se é spacebar
-        if (event.keyCode == '32') {
+        if (event.keyCode == '32')
+        {
+            // É verificado se a tag já está na lista
+            var duplicate = false;
+            var tagAdded = template.find('#TagsInput').value.split(" ")[0]
+            tagsL.forEach(function (item) {
+                if (tagAdded == item) {
+                    duplicate = true;
+                }
+            });
+            if (duplicate == false) {
+                if(tagAdded.length >= 2){
+                event.preventDefault();
+                var tag = template.find('#TagsInput').value;
 
-            event.preventDefault();
-            var tag = template.find('#TagsInput').value;
+                // Remove os espaços e limpa o input
+                tagsL.push(tag.split(" ")[0]);
+                    //adicionar filtro à pesquisa
+                    var instance = EasySearch.getComponentInstance(
+                        { index : 'suggestions' }
+                    );
+                    EasySearch.changeProperty('suggestions', 'Tags', tagsL);
+                }
+                else{
+                    event.preventDefault();
+                    $('#inputForTags')[0].reset();
+                }
 
-            // Remove os espaços e limpa o input
-            tagsL.push(tag.split(" "));
+            }
             $('#inputForTags')[0].reset();
         }
         // impede utilizadores de escreverem mais do que 25 letras

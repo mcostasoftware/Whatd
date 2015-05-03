@@ -1,9 +1,58 @@
 <template name="suggestion">
-<div>
-    {{#with data}}
-    {{name}}
-        {{score}}
+    {{#with suggestionIndividual}}
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1>{{name}}</h1>
+            <p class="lead">{{score}}</p>
+
+            <div id="description">
+                {{description}}
+            </div>
+            {{#if isInRole 'moderator'}}
+                <form >
+                    <button type="submit" class="btn-warning">Edit</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            {{/if}}
+            {{#if isInRole 'admin'}}
+                <form >
+                    <button type="submit" class="btn btn-warning">Edit</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            {{/if}}
+            <ul style="margin-top: 10px;">
+                {{#each this.tags}}
+                    <li class="tag-list-item">
+                        <a>{{this}}</a>
+                    </li>
+                {{/each}}
+            </ul>
+
+
+        </div>
+        {{> commentSection}}
+    </div>
+
+
+
 
     {{/with}}
-</div>
+
+</template>
+
+<template name="commentSection">
+    <h4>Comments</h4>
+    <form>
+    <textarea id="CommentBody" class="form-control margin-5px" rows="5"  placeholder="Share your opinion."></textarea>
+    <button type="submit" class="btn btn-success ">Submit</button>
+    </form>
+    <div style="margin-top:10px;">
+    {{#each suggestionComments}}
+        <div class="well well-sm">
+           <a href="/profile/{{username}}">{{username}} </a>{{score}} <a><span class="glyphicon glyphicon-thumbs-up"></span></a>
+            <a><span class="glyphicon glyphicon-thumbs-down"></span></a>
+            <p>{{body}}</p>
+        </div>
+    {{/each}}
+    </div>
 </template>
