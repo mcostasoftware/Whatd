@@ -2,9 +2,9 @@ Template.profile.helpers({
     User : function () {
         return  Template.instance().data;
     },
-
     userSuggestion: function() {
-        var user = Meteor.users.find({username : Template.instance().data});
+
+        var user = Template.instance().data;
 
         return Suggestions.find(
             {
@@ -13,3 +13,5 @@ Template.profile.helpers({
         );
     }
 });
+
+Meteor.subscribe("users");

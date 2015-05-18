@@ -95,5 +95,18 @@ Meteor.methods({
         }
 
 
+    },
+    updateSuggestion : function(suggestionId, title, body, tags){
+        if (! Meteor.userId() && ! Roles.userIsInRole(Meteor.userId(), ['admin'])) {
+            throw new Meteor.Error("not-authorized");
+        }
+        Suggestions.update(
+            { _id: suggestionId },
+            {
+                name: title,
+                description: body,
+                tags: tags
+            }
+        )
     }
 });

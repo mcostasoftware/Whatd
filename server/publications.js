@@ -16,3 +16,7 @@ Meteor.publish('comments',function(){
 Meteor.publish('commentVotes', function(){
    return CommentVotes.find();
 });
+
+Meteor.publish('users', function(){
+   return Meteor.users.find({}, {fields: {username: 1, createdAt: 1, _id: 1}});
+});

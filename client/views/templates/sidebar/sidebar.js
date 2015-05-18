@@ -5,10 +5,10 @@ Template.sidebar.events({
     'keydown form' : function(event, template) {
 
 
-        // verifica se é spacebar
+        // verifica se ï¿½ spacebar
         if (event.keyCode == '32')
         {
-            // É verificado se a tag já está na lista
+            // ï¿½ verificado se a tag jï¿½ estï¿½ na lista
             var duplicate = false;
             var tagAdded = template.find('#TagsInput').value.split(" ")[0]
             tagsL.forEach(function (item) {
@@ -21,13 +21,15 @@ Template.sidebar.events({
                 event.preventDefault();
                 var tag = template.find('#TagsInput').value;
 
-                // Remove os espaços e limpa o input
+                // Remove os espaï¿½os e limpa o input
                 tagsL.push(tag.split(" ")[0]);
-                    //adicionar filtro à pesquisa
+                    //adicionar filtro ï¿½ pesquisa
                     var instance = EasySearch.getComponentInstance(
                         { index : 'suggestions' }
                     );
-                    EasySearch.changeProperty('suggestions', 'Tags', tagsL);
+
+                    EasySearch.changeProperty('suggestions', 'Tags', x);
+                    instance.triggerSearch();
                 }
                 else{
                     event.preventDefault();
@@ -42,9 +44,6 @@ Template.sidebar.events({
 
                 event.preventDefault();
             }
-
-
-
     }
 });
 
@@ -53,3 +52,5 @@ Template.sidebar.helpers({
         return tagsL.list();
     }
 });
+
+

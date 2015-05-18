@@ -9,7 +9,8 @@ Template.newSuggestion.events({
         var response = $('#g-recaptcha-response').val();
 
         Meteor.call("addSuggestion", title, description, tags, response, function(error, result){
-            console.log("Result: " , error, result);
+            this.redirect('suggestion');
         } );
+
     }
 });

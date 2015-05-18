@@ -10,14 +10,16 @@
             </div>
             {{#if isInRole 'moderator'}}
                 <form >
-                    <button type="submit" class="btn-warning">Edit</button>
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <a class="glyphicon glyphicon-edit"  data-toggle="modal"
+                       data-target="#basicModal">Edit</a>
+                    <a class="glyphicon glyphicon-remove-sign">Delete</a>
                 </form>
             {{/if}}
             {{#if isInRole 'admin'}}
                 <form >
-                    <button type="submit" class="btn btn-warning">Edit</button>
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <a class="glyphicon glyphicon-edit"  data-toggle="modal"
+                       data-target="#basicModal">Edit</a>
+                    <a class="glyphicon glyphicon-remove-sign">Delete</a>
                 </form>
             {{/if}}
             <ul style="margin-top: 10px;">
@@ -33,8 +35,7 @@
         {{> commentSection}}
     </div>
 
-
-
+    {{> modalEdit}}
 
     {{/with}}
 
@@ -47,12 +48,47 @@
     <button type="submit" class="btn btn-success ">Submit</button>
     </form>
     <div style="margin-top:10px;">
+
     {{#each suggestionComments}}
+
         <div class="well well-sm">
-           <a href="/profile/{{username}}">{{username}} </a>{{score}} <a><span class="glyphicon glyphicon-thumbs-up"></span></a>
+           <a href="/profile/{{userId}}">{{username}} </a>{{score}} <a><span class="glyphicon glyphicon-thumbs-up"></span></a>
+
             <a><span class="glyphicon glyphicon-thumbs-down"></span></a>
+
             <p>{{body}}</p>
         </div>
+
     {{/each}}
+
     </div>
 </template>
+
+<template name="modalEdit">
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h4 class="modal-title" id="myModalLabel">Edit</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label for="suggestionTitle">Title:</label>
+                        <input type="text" class="form-control margin-5px" id="Title">
+
+                        <label for="description">Description:</label>
+                        <textarea class="form-control margin-5px" rows="5" id="Body"></textarea>
+
+                        <label for="taglist">Tags:</label>
+                        <input type="text" class="form-control margin-5px" id="List">
+
+                        <button type="submit" class="btn btn-success ">Submit</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+

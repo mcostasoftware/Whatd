@@ -40,3 +40,18 @@ Template.commentSection.events({
 
 });
 
+
+Template.modalEdit.events({
+    'submit form' : function(event, template) {
+        event.preventDefault();
+        var title = template.find('#Title').value;
+        var description = template.find('#Body').value;
+        var tags = template.find('#List').value.split(" ");
+
+        Meteor.call("updateSuggestion", this._id, title, description, tags, function(error, result){
+            console.log(error , result);
+        } );
+
+    }
+});
+
