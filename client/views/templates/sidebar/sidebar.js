@@ -23,13 +23,15 @@ Template.sidebar.events({
 
                 // Remove os espa�os e limpa o input
                 tagsL.push(tag.split(" ")[0]);
-                    //adicionar filtro � pesquisa
+                    //adicionar filtro � pesquisata
                     var instance = EasySearch.getComponentInstance(
                         { index : 'suggestions' }
                     );
 
-                    EasySearch.changeProperty('suggestions', 'Tags', x);
+
+                    EasySearch.changeProperty('suggestions', 'tagsToSearch', tagsL.array());
                     instance.triggerSearch();
+                    $('#inputForTags')[0].reset();
                 }
                 else{
                     event.preventDefault();

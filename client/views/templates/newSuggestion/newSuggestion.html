@@ -1,13 +1,24 @@
 <template name="newSuggestion">
-    <form>
+    <form id="SuggestionDescription">
         <label for="suggestionTitle">Title:</label>
         <input type="text" class="form-control margin-5px" id="suggestionTitle">
 
         <label for="description">Description:</label>
         <textarea class="form-control margin-5px" rows="5" id="description"></textarea>
 
-        <label for="taglist">Tags:</label>
-        <input type="text" class="form-control margin-5px" id="taglist">
+        <label for="TagsInput">Tags:</label>
+        <form id="inputForTags">
+        <input type="text" class="form-control margin-5px" id="TagsInput">
+            </form>
+        <ul  type="submit" class="list-unstyled spacing-margins-custom" id="TagList">
+            {{#each tagsList}}
+                <li class="tag-list-item">
+
+                    <a>{{this}}</a>
+                </li>
+            {{/each}}
+
+        </ul>
         {{> reCAPTCHA}}
         <button type="submit" class="btn btn-success ">Submit</button>
 
